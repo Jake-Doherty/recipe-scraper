@@ -1,7 +1,7 @@
 -- Use this file to define your SQL tables
 -- The SQL in this file will be executed when you run `npm run setup-db`
 DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS scraper CASCADE;
+DROP TABLE IF EXISTS recipes CASCADE;
 
 
 
@@ -13,13 +13,14 @@ CREATE TABLE users (
   last_name VARCHAR NOT NULL
 );
 
-CREATE TABLE scraper (
+CREATE TABLE recipes (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   title VARCHAR,
-  date VARCHAR,
-  detail_url VARCHAR UNIQUE,
-  new_post BOOLEAN DEFAULT true,
-  add_to_cal_url VARCHAR
+  time_to_cook VARCHAR,
+  servings VARCHAR,
+  ingredients VARCHAR,
+  instructions VARCHAR,
+  recipe_url VARCHAR
 );
 
 
