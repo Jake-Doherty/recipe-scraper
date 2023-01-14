@@ -5,12 +5,12 @@ const { startBrowser } = require('./lib/services/scraper/browser.js');
 // const nodeCron = require('node-cron');
 const fnScraperObject = require('./lib/services/scraper/site-scrapers/food-network.js');
 
-async function grabScraped(url) {
+async function grabScraped(url, user) {
   console.log('in the grabScraped function');
   const browser = await startBrowser();
   console.log('after starting the browser session');
 
-  const recipe = await fnScraperObject.scraper(browser, url);
+  const recipe = await fnScraperObject.scraper(browser, url, user);
   console.log('after scraper finished', recipe);
   try {
     await Recipe.insert(recipe);

@@ -15,6 +15,7 @@ CREATE TABLE users (
 
 CREATE TABLE recipes (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  user_id VARCHAR NOT NULL,
   title VARCHAR,
   time_to_cook VARCHAR,
   servings VARCHAR,
